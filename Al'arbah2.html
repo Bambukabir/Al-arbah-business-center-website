@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AL'ARBAH BUSINESS CENTER AND PRINTING PRESS</title>
+  <style>
+    /* Basic Reset & Smooth Scrolling */
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f5f0e1;
+      color: #333;
+      line-height: 1.6;
+    }
+    a { text-decoration: none; }
+
+    /* Header & Navigation */
+    header {
+      position: sticky;
+      top: 0;
+      background: #8b5e3c;
+      color: #fff;
+      padding: 10px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      z-index: 1000;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+    }
+    .logo svg {
+      width: 60px;
+      height: 60px;
+      margin-right: 10px;
+    }
+    nav a {
+      color: #fff;
+      margin: 0 10px;
+      font-weight: bold;
+    }
+
+    /* Section Styles */
+    section {
+      padding: 60px 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
+    section h1, section h2 {
+      text-align: center;
+      color: #8b5e3c;
+      margin-bottom: 20px;
+    }
+    section p {
+      margin-bottom: 15px;
+      text-align: justify;
+    }
+
+    /* Hero (Home) Section */
+    #home {
+      background: url('https://via.placeholder.com/1200x500?text=Welcome+to+AL%27ARBAH') center/cover no-repeat;
+      color: #fff;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
+      padding: 120px 20px;
+    }
+    #home h1 { font-size: 3em; }
+    #home p { font-size: 1.2em; }
+
+    /* Buttons */
+    .btn {
+      display: inline-block;
+      background: #8b5e3c;
+      color: #fff;
+      padding: 12px 20px;
+      margin: 10px 5px;
+      border-radius: 5px;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+    .btn:hover { background: #704730; }
+
+    /* Services Grid */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+    .card {
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      padding: 20px;
+      text-align: center;
+    }
+    .card img {
+      width: 100%;
+      border-radius: 5px;
+      margin-bottom: 10px;
+    }
+    .card h3 { color: #8b5e3c; margin-bottom: 10px; }
+
+    /* Team Cards */
+    .team-card img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 10px;
+    }
+    .team-card p { font-size: 0.9em; }
+    .contact-info a {
+      margin: 0 5px;
+      color: #8b5e3c;
+      font-size: 1.2em;
+    }
+
+    /* Contact Form */
+    .contact-form {
+      background: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      max-width: 600px;
+      margin: 20px auto;
+    }
+    .contact-form label {
+      display: block;
+      margin: 10px 0 5px;
+    }
+    .contact-form input, .contact-form textarea {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      margin-bottom: 10px;
+    }
+    .contact-form button {
+      background: #8b5e3c;
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .contact-form button:hover { background: #704730; }
+
+    /* Footer */
+    footer {
+      background: #8b5e3c;
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+    }
+
+    /* Modal Styles */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 2000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background: rgba(0,0,0,0.6);
+    }
+    .modal-content {
+      background: #fff;
+      margin: 15% auto;
+      padding: 20px;
+      max-width: 500px;
+      border-radius: 8px;
+      text-align: center;
+      position: relative;
+    }
+    .close-modal {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      font-size: 1.5em;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <!-- Header & Navigation -->
+  <header>
+    <div class="logo">
+      <!-- Inline SVG Logo -->
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+        <circle cx="50" cy="50" r="45" fill="#f5f0e1" stroke="#8b5e3c" stroke-width="5"/>
+        <text x="50" y="55" text-anchor="middle" font-size="12" fill="#8b5e3c" font-family="serif">AL'ARBAH</text>
+      </svg>
+      <span style="font-size: 1.5em; font-weight:bold;">AL'ARBAH</span>
+    </div>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#samples">Samples</a>
+      <a href="#team">Team</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <!-- Home / Hero Section -->
+  <section id="home">
+    <h1>Welcome to AL'ARBAH BUSINESS CENTER AND PRINTING PRESS</h1>
+    <p>Located at Dorayi Chiranchi Layin Primary Opposite Malam Rabi'u Juma'at Mosque</p>
+    <a href="#services" class="btn">Explore Our Services</a>
+  </section>
+
+  <!-- About Section -->
+  <section id="about">
+    <h2>About Us</h2>
+    <p>
+      At <strong>AL'ARBAH BUSINESS CENTER AND PRINTING PRESS</strong>, we blend creativity with precision.
+      We offer a full range of printing and digital services—from high-quality printing, typesettings, limination, photocopying, scanning,
+      to inspiring graphic design, custom invitations, stickers, car branding, screen printing, and more.
+    </p>
+    <p>
+      Our passion is reflected in every project, and our commitment to excellence is unwavering.
+      Visit us at <strong>Dorayi Chiranchi Layin Primary Opposite Malam Rabi'u Juma'at Mosque</strong> and see our work come to life.
+    </p>
+    <img src="https://via.placeholder.com/800x400?text=Our+Shop+Front" alt="Our Shop Front" style="width:100%; border-radius:8px;">
+  </section>
+
+  <!-- Services Section -->
+  <section id="services">
+    <h2>Our Services</h2>
+    <div class="grid">
+      <div class="card">
+        <img src="https://via.placeholder.com/400x250?text=High-Quality+Printing" alt="High-Quality Printing">
+        <h3>High-Quality Printing</h3>
+        <p>We deliver vibrant prints—from screen and digital printing to offset work—that exceed expectations.</p>
+      </div>
+      <div class="card">
+        <img src="https://via.placeholder.com/400x250?text=Typesettings+%26+Limination" alt="Typesettings & Limination">
+        <h3>Typesettings & Limination</h3>
+        <p>Our expert typesetting and limination add a refined finish to every document.</p>
+      </div>
+      <div class="card">
+        <img src="https://via.placeholder.com/400x250?text=Photocopying+%26+Scanning" alt="Photocopying & Scanning">
+        <h3>Photocopying & Scanning</h3>
+        <p>Fast, accurate, and reliable—our services cater to your everyday needs.</p>
+      </div>
+      <div class="card">
+        <img src="https://via.placeholder.com/400x250?text=Graphic+Design+%26+Invitations" alt="Graphic Design & Invitations">
+        <h3>Graphic Design & Invitations</h3>
+        <p>Our creative team produces inspiring designs and elegant invitations that impress.</p>
+      </div>
+      <div class="card">
+        <img src="https://via.placeholder.com/400x250?text=Custom+Stickers+%26+Car+Branding" alt="Stickers & Car Branding">
+        <h3>Stickers & Car Branding</h3>
+        <p>Unique, eye-catching branding solutions that boost your visibility and impact.</p>
+      </div>
+      <div class="card">
+        <img src="https://via.placeholder.com/400x250?text=Screen+Printing+and+More" alt="Screen Printing">
+        <h3>Screen Printing & More</h3>
+        <p>Our screen printing expertise covers apparel and promotional materials with flair.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Samples Section -->
+  <section id="samples">
+    <h2>Our Sample Works</h2>
+    <div class="grid">
+      <div class="card">
+        <img src="https://via.placeholder.com/600x400?text=Printing+Sample+1" alt="Printing Sample 1">
+        <h3>Printing Excellence</h3>
+        <p>Vibrant colors and crisp details that speak for themselves.</p>
+        <button class="btn" onclick="openContactModal('general')">Contact Now</button>
+      </div>
+      <div class="card">
+        <img src="https://via.placeholder.com/600x400?text=Typesetting+Sample" alt="Typesetting Sample">
+        <h3>Professional Typesetting</h3>
+        <p>Precision and elegance in every document.</p>
+        <button class="btn" onclick="openContactModal('typesetting')">Get in Touch</button>
+      </div>
+      <div class="card">
+        <img src="https://via.placeholder.com/600x400?text=Graphic+Design+Sample" alt="Graphic Design Sample">
+        <h3>Creative Graphic Designs</h3>
+        <p>Designs that inspire and captivate your audience.</p>
+        <button class="btn" onclick="openContactModal('graphic')">Learn More</button>
+      </div>
+      <div class="card">
+        <img src="https://via.placeholder.com/600x400?text=Invitation+Design+Sample" alt="Invitation Design Sample">
+        <h3>Elegant Invitations</h3>
+        <p>Custom creations that leave a lasting impression.</p>
+        <button class="btn" onclick="openContactModal('graphic')">Contact Us</button>
+      </div>
+      <div class="card">
+        <img src="https://via.placeholder.com/600x400?text=Branding+Sample" alt="Branding Sample">
+        <h3>Branding That Stands Out</h3>
+        <p>Unique solutions for stickers and car branding.</p>
+        <button class="btn" onclick="openContactModal('graphic')">Get Started</button>
+      </div>
+      <div class="card">
+        <img src="https://via.placeholder.com/600x400?text=Screen+Printing+Sample" alt="Screen Printing Sample">
+        <h3>Screen Printing Mastery</h3>
+        <p>High-quality prints for apparel and more.</p>
+        <button class="btn" onclick="openContactModal('general')">Contact Now</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Team Section -->
+  <section id="team">
+    <h2>Meet Our Team</h2>
+    <div class="grid">
+      <!-- CEO -->
+      <div class="card team-card">
+        <img src="https://via.placeholder.com/120?text=CEO" alt="Ahmad Alpha Ahmad">
+        <h3>Ahmad Alpha Ahmad (Sharifi)</h3>
+        <p><strong>CEO</strong></p>
+        <p>"A visionary leader whose passion, expertise, and unwavering commitment inspire every project we undertake."</p>
+        <div class="contact-info">
+          <a href="mailto:ahmadalpha0099@gmail.com" title="Email CEO">✉️</a>
+          <a href="tel:08133316074" title="Call CEO">📞</a>
+          <a href="https://wa.me/2348133316074" target="_blank" title="WhatsApp CEO">💬</a>
+        </div>
+      </div>
+      <!-- Head of Graphics -->
+      <div class="card team-card">
+        <img src="https://via.placeholder.com/120?text=Bambu" alt="Abubakar Kabir Musa">
+        <h3>Abubakar Kabir Musa (Bambu)</h3>
+        <p><strong>Head of Graphics &amp; Internet Cafe</strong></p>
+        <p>"A creative force whose innovative designs and digital solutions continually inspire our clients."</p>
+        <div class="contact-info">
+          <a href="mailto:abubakarkabirmusa4@gmail.com" title="Email Bambu">✉️</a>
+          <a href="tel:+6287782626820" title="Call Bambu">📞</a>
+          <a href="https://wa.me/2348081720794" target="_blank" title="WhatsApp Bambu">💬</a>
+        </div>
+      </div>
+      <!-- Typesetting Specialist -->
+      <div class="card team-card">
+        <img src="https://via.placeholder.com/120?text=Mohjalo" alt="Muhammad Umar Jalo">
+        <h3>Muhammad Umar Jalo (Mohjalo)</h3>
+        <p><strong>Typesetting &amp; Invitation Specialist</strong></p>
+        <p>"Ensuring every invitation and printed detail reflects the highest standards of precision and beauty."</p>
+        <div class="contact-info">
+          <a href="mailto:muhammadumarjalo@gmail.com" title="Email Mohjalo">✉️</a>
+          <a href="tel:09126169592" title="Call Mohjalo">📞</a>
+        </div>
+      </div>
+      <!-- Young Prodigy -->
+      <div class="card team-card">
+        <img src="https://via.placeholder.com/120?text=Haidar" alt="Aliyu Alpha Ahmad">
+        <h3>Aliyu Alpha Ahmad (Haidar)</h3>
+        <p><strong>Multi-Talented Prodigy</strong></p>
+        <p>"Our dynamic young talent who, at just 15, handles multiple tasks with brilliance and enthusiasm."</p>
+        <div class="contact-info">
+          <a href="#contact" title="Visit Shop">🏠 Visit Shop</a>
+        </div>
+      </div>
+      <!-- Photocopy Expert -->
+      <div class="card team-card">
+        <img src="https://via.placeholder.com/120?text=Mal+Umar" alt="Umar Kabir Musa">
+        <h3>Umar Kabir Musa (Mal. Umar)</h3>
+        <p><strong>Photocopy &amp; Scanning Expert</strong></p>
+        <p>"A dedicated pillar in our operations—mastering photocopying, limination, and scanning while paving the way for future design excellence."</p>
+        <div class="contact-info">
+          <a href="mailto:umarkabir090@gmail.com" title="Email Mal. Umar">✉️</a>
+          <a href="tel:09166996293" title="Call Mal. Umar">📞</a>
+        </div>
+      </div>
+    </div>
+    <h2 style="margin-top:40px;">Our Dedicated Past Workers</h2>
+    <div class="grid">
+      <div class="card team-card">
+        <img src="https://via.placeholder.com/120?text=Yazeed" alt="Yazeed Abubakar">
+        <h3>Yazeed Abubakar</h3>
+        <p>Former Chief Graphic Designer and Mentor</p>
+      </div>
+      <div class="card team-card">
+        <img src="https://via.placeholder.com/120?text=Coach" alt="Muhammad Inuwa Tijjani">
+        <h3>Muhammad Inuwa Tijjani (Coach)</h3>
+      </div>
+      <div class="card team-card">
+        <img src="https://via.placeholder.com/120?text=Baffa" alt="Sulaiman Kabir Musa">
+        <h3>Sulaiman Kabir Musa (Baffa Pillars)</h3>
+      </div>
+      <div class="card team-card">
+        <img src="https://via.placeholder.com/120?text=Aliyu" alt="Aliyu Tijjani Abdullahi">
+        <h3>Aliyu Tijjani Abdullahi</h3>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact">
+    <h2>Contact Us</h2>
+    <div style="text-align: center; margin-bottom: 30px;">
+      <p>
+        For inquiries or to discuss your project, reach out directly:
+      </p>
+      <p>
+        <strong>General / CEO:</strong>
+        <a href="mailto:ahmadalpha0099@gmail.com" title="Email CEO">✉️ ahmadalpha0099@gmail.com</a> &nbsp;|&nbsp;
+        <a href="tel:08133316074" title="Call CEO">📞 08133316074</a> &nbsp;|&nbsp;
+        <a href="https://wa.me/2348133316074" target="_blank" title="WhatsApp CEO">💬 WhatsApp</a>
+      </p>
+      <p>
+        <strong>Graphics / Internet Cafe (Bambu):</strong>
+        <a href="mailto:abubakarkabirmusa4@gmail.com" title="Email Bambu">✉️ abubakarkabirmusa4@gmail.com</a> &nbsp;|&nbsp;
+        <a href="tel:+6287782626820" title="Call Bambu">📞 +6287782626820</a> &nbsp;|&nbsp;
+        <a href="https://wa.me/2348081720794" target="_blank" title="WhatsApp Bambu">💬 WhatsApp</a>
+      </p>
+      <p>
+        <strong>Typesetting/Invitations (Mohjalo):</strong>
+        <a href="mailto:muhammadumarjalo@gmail.com" title="Email Mohjalo">✉️ muhammadumarjalo@gmail.com</a> &nbsp;|&nbsp;
+        <a href="tel:09126169592" title="Call Mohjalo">📞 09126169592</a>
+      </p>
+      <p>
+        <strong>Photocopy/Scanning (Mal. Umar):</strong>
+        <a href="mailto:umarkabir090@gmail.com" title="Email Mal. Umar">✉️ umarkabir090@gmail.com</a> &nbsp;|&nbsp;
+        <a href="tel:09166996293" title="Call Mal. Umar">📞 09166996293</a>
+      </p>
+    </div>
+    <div class="contact-form">
+      <h2 style="text-align:center;">Send Us a Message</h2>
+      <form id="contactForm">
+        <label for="name">Your Name:</label>
+        <input type="text" id="name" name="name" required />
+        
+        <label for="email">Your Email:</label>
+        <input type="email" id="email" name="email" required />
+        
+        <label for="message">Your Message:</label>
+        <textarea id="message" name="message" rows="5" required></textarea>
+        
+        <button type="submit">Send Message</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 AL'ARBAH BUSINESS CENTER AND PRINTING PRESS. All rights reserved.</p>
+  </footer>
+
+  <!-- Modal for Contact Options (triggered from Sample Cards) -->
+  <div id="contactModal" class="modal">
+    <div class="modal-content">
+      <span class="close-modal" onclick="closeModal()">&times;</span>
+      <h3 id="modalTitle">Contact Options</h3>
+      <p>Select your preferred method:</p>
+      <div id="modalButtons">
+        <!-- Buttons will be inserted here dynamically -->
+      </div>
+    </div>
+  </div>
+
+  <!-- JavaScript for Modal Functionality & Form Handling -->
+  <script>
+    // Open modal based on service type (using an identifier passed from sample cards)
+    function openContactModal(type) {
+      const modal = document.getElementById('contactModal');
+      const modalButtons = document.getElementById('modalButtons');
+      modalButtons.innerHTML = ''; // Clear previous buttons
+      let buttonsHTML = '';
+      
+      // Define contact options based on type
+      // For simplicity, 'general' and 'graphic' options use two contacts
+      if(type === 'general') {
+        document.getElementById('modalTitle').innerText = 'Contact Our CEO';
+        buttonsHTML += `<button class="btn" onclick="redirectContact('email','ahmadalpha0099@gmail.com')">✉️ Email CEO</button>`;
+        buttonsHTML += `<button class="btn" onclick="redirectContact('whatsapp','2348133316074')">💬 WhatsApp CEO</button>`;
+      } else if(type === 'graphic') {
+        document.getElementById('modalTitle').innerText = 'Contact Our Graphics Team';
+        buttonsHTML += `<button class="btn" onclick="redirectContact('email','abubakarkabirmusa4@gmail.com')">✉️ Email Bambu</button>`;
+        buttonsHTML += `<button class="btn" onclick="redirectContact('whatsapp','2348081720794')">💬 WhatsApp Bambu</button>`;
+      } else if(type === 'typesetting') {
+        document.getElementById('modalTitle').innerText = 'Contact for Typesetting/Invitations';
+        buttonsHTML += `<button class="btn" onclick="redirectContact('email','muhammadumarjalo@gmail.com')">✉️ Email Mohjalo</button>`;
+        buttonsHTML += `<button class="btn" onclick="redirectContact('call','09126169592')">📞 Call Mohjalo</button>`;
+      }
+      
+      modalButtons.innerHTML = buttonsHTML;
+      modal.style.display = 'block';
+    }
+    
+    function closeModal() {
+      document.getElementById('contactModal').style.display = 'none';
+    }
+    
+    function redirectContact(method, contact) {
+      if(method === 'email') {
+        window.location.href = 'mailto:' + contact;
+      } else if(method === 'whatsapp') {
+        window.location.href = 'https://wa.me/' + contact;
+      } else if(method === 'call') {
+        window.location.href = 'tel:' + contact;
+      }
+    }
+    
+    // Close modal if clicking outside its content
+    window.onclick = function(event) {
+      if(event.target === document.getElementById('contactModal')) {
+        closeModal();
+      }
+    }
+    
+    // Simple simulated form submission (since no backend is provided)
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      alert('Thank you for your message! We will get back to you soon.');
+      this.reset();
+    });
+  </script>
+</body>
+</html>
